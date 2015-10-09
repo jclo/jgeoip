@@ -9,7 +9,7 @@
 
 [![NPM install][npm-install-image]][npm-install-url]
 
-jGeoIP is a light Javascript API for reading new [MaxMind](https://www.maxmind.com)'s DB files (mmdb). jGeoIP stores the complete database in memory to speed up the performances. Besides, it implements a LRU (Least Recently Used) cache for optimizing reading performances.
+jGeoIP is a light Javascript API for reading new [MaxMind](https://www.maxmind.com)'s DB files (mmdb). jGeoIP stores the complete database in memory to speed up the performances. Besides, it implements a LRU (Least Recently Used) cache for optimizing reading performances for the most recently used IPs.
 
 ## Usage
 
@@ -135,6 +135,9 @@ Some IP addresses do not report `city` information. Most IPv6 addresses report c
         'zh-CN': '美国' } } }
 ```
 
+## License
+
+[MIT](LICENSE.md).
 
 <!--- URls -->
 
