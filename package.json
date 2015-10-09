@@ -1,0 +1,45 @@
+{
+  "name": "jgeoip",
+  "version": "0.1.0",
+  "description": "A light Javascript API for reading MaxMind DB files",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover -x ./test/main.js _mocha -- -R spec ./test/main.js",
+    "check-coverage": "istanbul check-coverage --statements 75 --branches 65 --functions 70 --lines 75",
+    "display-coverage": "open ./coverage/lcov-report/index.html",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jclo/jgeoip.git"
+  },
+  "keywords": [
+    "geolocation",
+    "geoip",
+    "geoip2",
+    "Geoiplite2",
+    "maxmind",
+    "mmdb"
+  ],
+  "author": "Jclo <jc006@wanadoo.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jclo/jgeoip/issues"
+  },
+  "homepage": "https://github.com/jclo/jgeoip",
+  "devDependencies": {
+    "chai": "3.3.0",
+    "coveralls": "2.11.4",
+    "ghooks": "0.3.2",
+    "istanbul": "0.3.22",
+    "mocha": "2.3.3"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run test && npm run check-coverage"
+    }
+  }
+}
