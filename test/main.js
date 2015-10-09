@@ -3,16 +3,18 @@
 'use strict';
 
 // -- Node modules
-var fs = require('fs')
-  , should = require('chai').should()
-  , expect = require('chai').expect
+var fs       = require('fs')
+  , should   = require('chai').should()
+  , expect   = require('chai').expect
+  , execSync = require('child_process').execSync;
   ;
 
 // -- Local modules
 var GeoIP = require('../index.js');
 
 // -- Local constants
-var COUNTRY    = '_db/GeoLite2-Country.mmdb'
+var CMD        = './test/geolite2_download.sh'
+  , COUNTRY    = '_db/GeoLite2-Country.mmdb'
   , CITY       = '_db/GeoLite2-City.mmdb'
   , IPV4       = '8.8.8.8'
   , IPV6       = '2001:4860:4860::8888'
@@ -21,6 +23,12 @@ var COUNTRY    = '_db/GeoLite2-Country.mmdb'
   , FALSEIP6   = '2001:4860:4860:8888'
   ;
 
+// Download GeoLite2 databases if they are not present. This is required
+// for Travis CI as we do not provide MaxMind's databases with the
+// package.
+execSync(CMD);
+
+// Start tests.
 describe('jGeoIP2', function() {
 
   // Country Database.
