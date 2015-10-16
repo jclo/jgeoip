@@ -1,6 +1,6 @@
 {
   "name": "jgeoip",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A light Javascript API for reading MaxMind DB files",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "istanbul cover -x ./test/main.js _mocha -- -R spec ./test/main.js",
-    "check-coverage": "istanbul check-coverage --statements 75 --branches 65 --functions 70 --lines 75",
+    "check-coverage": "istanbul check-coverage --statements 89 --branches 75 --functions 100 --lines 89",
     "display-coverage": "open ./coverage/lcov-report/index.html",
     "report-coverage": "cat ./coverage/lcov.info | coveralls"
   },

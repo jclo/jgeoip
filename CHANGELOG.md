@@ -1,12 +1,15 @@
 ### HEAD
 
-### 0.1.x (October 9, 2015)
+### 0.1.1 (October 16, 2015)
 
-  * Updated README.md file,
-  * Upgraded test file to download GoeLite2 databases if they do not exist (Travis CI),
-  * ...,
+  * Updated the README.md file,
+  * Upgraded the test file to download GeoLite2 databases if they do not exist (Travis CI),
+  * Completed .eslintrc stylistic rules,
+  * Fixed stylistic issues,
+  * Reworked test file,
+  * Improved test coverage.
 
 
 ### 0.1.0 (October 9, 2015)
 
-* Initial build
+* Initial build.
