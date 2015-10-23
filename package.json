@@ -1,6 +1,6 @@
 {
   "name": "jgeoip",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A light Javascript API for reading MaxMind DB files",
   "main": "index.js",
   "directories": {
@@ -20,11 +20,11 @@
     "geolocation",
     "geoip",
     "geoip2",
-    "Geoiplite2",
+    "geoiplite2",
     "maxmind",
     "mmdb"
   ],
-  "author": "Jclo <jc006@wanadoo.fr>",
+  "author": "jclo <jclo@mobilabs.fr> (http://www.mobilabs.fr/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jclo/jgeoip/issues"
