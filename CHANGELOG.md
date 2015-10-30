@@ -1,6 +1,10 @@
 ### HEAD
 
-### HEAD
+### 0.1.3 (October 30, 2015)
+
+  * Made the command npm run display-coverage cross-platform,
+  * Updated npm packages.
+
 
 ### 0.1.2 (October 23, 2015)
 
@@ -20,4 +24,4 @@
 
 ### 0.1.0 (October 9, 2015)
 
-* Initial build.
+  * Initial build.
