@@ -1,5 +1,10 @@
 ### HEAD
 
+### 0.1.4 (November 20,2015)
+
+  * Updated dependencies.
+
+
 ### 0.1.3 (October 30, 2015)
 
   * Made the command npm run display-coverage cross-platform,
