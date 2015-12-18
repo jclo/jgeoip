@@ -1,6 +1,6 @@
 {
   "name": "jgeoip",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A light Javascript API for reading MaxMind DB files",
   "main": "index.js",
   "directories": {
@@ -32,9 +32,9 @@
   "homepage": "https://github.com/jclo/jgeoip",
   "devDependencies": {
     "chai": "3.4.1",
-    "coveralls": "2.11.4",
-    "ghooks": "1.0.0",
-    "istanbul": "0.4.0",
+    "coveralls": "2.11.6",
+    "ghooks": "1.0.1",
+    "istanbul": "0.4.1",
     "mocha": "2.3.4",
     "opener": "1.4.1"
   },
