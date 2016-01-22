@@ -1,11 +1,17 @@
 ### HEAD
 
-### 0.1.5 (December 18,2015)
+### 0.1.6 (January 22, 2016)
+
+  * Updated copyright dates,
+  * Updated dependencies.
+
+
+### 0.1.5 (December 18, 2015)
 
   * Updated dependencies.
 
 
-### 0.1.4 (November 20,2015)
+### 0.1.4 (November 20, 2015)
 
   * Updated dependencies.
 
