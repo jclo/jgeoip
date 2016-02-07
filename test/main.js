@@ -17,6 +17,7 @@ var CMD        = './test/geolite2_download.sh'
   , CITY       = '_db/GeoLite2-City.mmdb'
   , IPV4       = '8.8.8.8'
   , IPV6       = '2001:4860:4860::8888'
+  , IPV4TO6MAP = '::ffff:54.88.56.156'
   , PRIVATEIP  = '192.168.98.1'
   , FALSEIP4   = '8.8.8'
   , FALSEIP6   = '2001:4860:4860:8888'
@@ -114,6 +115,36 @@ describe('jGeoIP2', function() {
 
         it('Expects the cache to return a record.', function() {
           record = geoip.getRecord(IPV4);
+          expect(record).to.be.an('object');
+        });
+      });
+
+      describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, function() {
+        var geoip
+          , record
+          ;
+
+        geoip = new GeoIP(COUNTRY);
+        record = geoip.getRecord(IPV4TO6MAP);
+
+        it('Expects the method to return a record.', function() {
+          expect(record).to.be.an('object');
+        });
+
+        it('Expects this record to have the property "continent".', function() {
+          expect(record).to.have.property('continent');
+        });
+
+        it('Expects this record to have the property "country".', function() {
+          expect(record).to.have.property('country');
+        });
+
+        it('Expects this record to have the property "registered_country".', function() {
+          expect(record).to.have.property('registered_country');
+        });
+
+        it('Expects the cache to return a record.', function() {
+          record = geoip.getRecord(IPV4TO6MAP);
           expect(record).to.be.an('object');
         });
       });
@@ -220,6 +251,51 @@ describe('jGeoIP2', function() {
           expect(record).to.have.property('subdivisions');
         });
       });
+
+
+
+      describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, function() {
+        var geoip
+          , record
+          ;
+
+        geoip = new GeoIP(CITY);
+        record = geoip.getRecord(IPV4TO6MAP);
+
+        it('Expects the method to return a record.', function() {
+          expect(record).to.be.an('object');
+        });
+
+        it('Expects this record to have the property "city".', function() {
+          expect(record).to.have.property('city');
+        });
+
+        it('Expects this record to have the property "continent".', function() {
+          expect(record).to.have.property('continent');
+        });
+
+        it('Expects this record to have the property "country".', function() {
+          expect(record).to.have.property('country');
+        });
+
+        it('Expects this record to have the property "location".', function() {
+          expect(record).to.have.property('location');
+        });
+
+        it('Expects this record to have the property "postal".', function() {
+          expect(record).to.have.property('postal');
+        });
+
+        it('Expects this record to have the property "registered_country".', function() {
+          expect(record).to.have.property('registered_country');
+        });
+
+        it('Expects this record to have the property "subdivisions".', function() {
+          expect(record).to.have.property('subdivisions');
+        });
+      });
+
+
 
     // Nota:
     // IPv6 do not return city, postal and subdivisions yet!
