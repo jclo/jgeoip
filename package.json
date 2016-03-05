@@ -1,6 +1,6 @@
 {
   "name": "jgeoip",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "A light Javascript API for reading MaxMind DB files",
   "main": "index.js",
   "directories": {
@@ -24,18 +24,25 @@
     "maxmind",
     "mmdb"
   ],
-  "author": "jclo <jclo@mobilabs.fr> (http://www.mobilabs.fr/)",
+  "author": {
+    "name": "jclo",
+    "email": "jclo@mobilabs.fr",
+    "url": "http://www.mobilabs.fr/"
+  },
+  "contributors": [
+    "DmitryM <dmitry@mainlywrenches.co> (http://mainlywrenches.co/)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jclo/jgeoip/issues"
   },
   "homepage": "https://github.com/jclo/jgeoip",
   "devDependencies": {
-    "chai": "3.4.1",
-    "coveralls": "2.11.6",
+    "chai": "3.5.0",
+    "coveralls": "2.11.8",
     "ghooks": "1.0.3",
     "istanbul": "0.4.2",
-    "mocha": "2.3.4",
+    "mocha": "2.4.5",
     "opener": "1.4.1"
   },
   "config": {
