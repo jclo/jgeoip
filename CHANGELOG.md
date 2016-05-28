@@ -1,5 +1,10 @@
 ### HEAD
 
+### 0.2.1 (May 28, 2016)
+
+  * Updated the dependencies.
+
+
 ### 0.2.0 (March 5, 2016)
 
   * Integrated DimitryM's branch (addition for ipv4-mapped-ipv6 addresses),
