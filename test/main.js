@@ -19,7 +19,7 @@ var CMD        = './test/geolite2_download.sh'
   , IPV6       = '2001:4860:4860::8888'
   , IPV4TO6MAP = '::ffff:54.88.56.156'
   , PRIVATEIP  = '192.168.98.1'
-  , FALSEIP4   = '8.8.8'
+  , FALSEIP4s   = ['8.8.8', '8.8.8.-8', '500.500.500.500']
   , FALSEIP6   = '2001:4860:4860:8888'
   ;
 
@@ -357,14 +357,17 @@ describe('jGeoIP2', function() {
       expect(geoip.getRecord()).to.be.null;
     });
 
-    it('Expects it to throw an error for the malformed IPv4 address ' + FALSEIP4 + '.', function() {
-      try {
-        test = false;
-        geoip.getRecord(FALSEIP4);
-      } catch (e) {
-        test = true;
-      }
-      expect(test).to.be.true;
+    FALSEIP4s.forEach(function(FALSEIP4) {
+      it('Expects it to throw an error for the malformed IPv4 address ' + FALSEIP4 + '.', function() {
+        try {
+          test = false;
+          geoip.getRecord(FALSEIP4);
+        } catch (e) {
+          test = true;
+        }
+        expect(test).to.be.true;
+      });
+    
     });
 
     it('Expects it to throw an error for the malformed IPv6 address ' + FALSEIP6 + '.', function() {
