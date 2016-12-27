@@ -1,5 +1,10 @@
 ### HEAD
 
+### 0.2.2 (December 27, 2016)
+
+  * Added DanielWu68's changes.
+
+
 ### 0.2.1 (May 28, 2016)
 
   * Updated the dependencies.
