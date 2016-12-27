@@ -1,5 +1,6 @@
 /* global describe, it */
-/* eslint max-len: [1, 120, 2] */
+/* eslint max-len: [1, 120, 2], no-new: 0, no-unused-expressions: 0 */
+
 'use strict';
 
 // -- Node modules
@@ -30,9 +31,7 @@ execSync(CMD);
 
 // Start tests.
 describe('jGeoIP2', function() {
-
   describe('Test jGeoIP2 constructor:', function() {
-
     it('Expects the constructor to throw an error if the db is undefined.', function() {
       var test
         ;
@@ -61,7 +60,6 @@ describe('jGeoIP2', function() {
   });
 
   describe('Test Country database:', function() {
-
     it('Expects GeoLite2-Country.mmdb to exist.', function() {
       var file = true;
       try { fs.accessSync(COUNTRY, fs.R_OK); } catch (e) { file = false; }
@@ -88,7 +86,6 @@ describe('jGeoIP2', function() {
     });
 
     describe('Test the method getRecord():', function() {
-
       describe('Test IPv4 address ' + IPV4, function() {
         var geoip
           , record
@@ -183,7 +180,6 @@ describe('jGeoIP2', function() {
 
 
   describe('Test City database:', function() {
-
     it('Expects GeoLite2-City.mmdb to exist.', function() {
       var file = true;
       try { fs.accessSync(CITY, fs.R_OK); } catch (e) { file = false; }
@@ -210,7 +206,6 @@ describe('jGeoIP2', function() {
     });
 
     describe('Test the method getRecord():', function() {
-
       describe('Test IPv4 address ' + IPV4, function() {
         var geoip
           , record
@@ -251,8 +246,6 @@ describe('jGeoIP2', function() {
           expect(record).to.have.property('subdivisions');
         });
       });
-
-
 
       describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, function() {
         var geoip
@@ -295,8 +288,6 @@ describe('jGeoIP2', function() {
         });
       });
 
-
-
     // Nota:
     // IPv6 do not return city, postal and subdivisions yet!
       describe('Test the IPv6 address ' + IPV6, function() {
@@ -311,9 +302,9 @@ describe('jGeoIP2', function() {
           expect(record).to.be.an('object');
         });
 
-        //it('Expects that this record has the property "city".', function() {
-          //expect(record).to.have.property('city');
-        //});
+        // it('Expects that this record has the property "city".', function() {
+        //   expect(record).to.have.property('city');
+        // });
 
         it('Expects this record to have the property "continent".', function() {
           expect(record).to.have.property('continent');
@@ -327,17 +318,17 @@ describe('jGeoIP2', function() {
           expect(record).to.have.property('location');
         });
 
-        //it('Expects that this record has the property "postal".', function() {
-          //expect(record).to.have.property('postal');
-        //});
+        // it('Expects that this record has the property "postal".', function() {
+        //   expect(record).to.have.property('postal');
+        // });
 
         it('Expects this record to have the property "registered_country".', function() {
           expect(record).to.have.property('registered_country');
         });
 
-        //it('Expects that this record has the property "subdivisions".', function() {
-          //expect(record).to.have.property('subdivisions');
-        //});
+        // it('Expects that this record has the property "subdivisions".', function() {
+        //   expect(record).to.have.property('subdivisions');
+        // });
       });
     });
   });
@@ -367,7 +358,6 @@ describe('jGeoIP2', function() {
         }
         expect(test).to.be.true;
       });
-    
     });
 
     it('Expects it to throw an error for the malformed IPv6 address ' + FALSEIP6 + '.', function() {

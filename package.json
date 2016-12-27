@@ -1,6 +1,6 @@
 {
   "name": "jgeoip",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A light Javascript API for reading MaxMind DB files",
   "main": "index.js",
   "directories": {
@@ -10,7 +10,8 @@
     "test": "istanbul cover -x ./test/main.js _mocha -- -R spec ./test/main.js",
     "check-coverage": "istanbul check-coverage --statements 89 --branches 75 --functions 100 --lines 89",
     "display-coverage": "opener ./coverage/lcov-report/index.html",
-    "report-coverage": "cat ./coverage/lcov.info | coveralls"
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "precommit": "npm run test && npm run check-coverage"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,8 @@
     "url": "http://www.mobilabs.fr/"
   },
   "contributors": [
-    "DmitryM <dmitry@mainlywrenches.co> (http://mainlywrenches.co/)"
+    "DmitryM <dmitry@mainlywrenches.co> (http://mainlywrenches.co/)",
+    "Danielwu68 <> ()"
   ],
   "license": "MIT",
   "bugs": {
@@ -39,15 +41,13 @@
   "homepage": "https://github.com/jclo/jgeoip",
   "devDependencies": {
     "chai": "3.5.0",
-    "coveralls": "2.11.9",
-    "ghooks": "1.2.1",
-    "istanbul": "0.4.3",
-    "mocha": "2.5.3",
-    "opener": "1.4.1"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "npm run test && npm run check-coverage"
-    }
+    "coveralls": "2.11.15",
+    "eslint": "3.12.2",
+    "eslint-config-airbnb-base": "11.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "istanbul": "0.4.5",
+    "husky": "0.12.0",
+    "mocha": "3.2.0",
+    "opener": "1.4.2"
   }
 }

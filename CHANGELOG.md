@@ -1,5 +1,12 @@
 ### HEAD
 
+### 0.3.0 (December 27, 2016)
+
+  * Updated the module to comply with Airbnb's ESLint rules,
+  * Updated .travis.yml to run the tests with the latest stable version of Node.js,
+  * Updated the dependencies and replaced the deprecated ghooks module by Husky.
+
+
 ### 0.2.2 (December 27, 2016)
 
   * Added DanielWu68's changes.
