@@ -3,7 +3,8 @@
 ### 0.3.1 (March 23, 2019)
 
   * Updated the dependencies,
-  * ...,
+  * Updated the test tool to match with the records of the latest databases,
+  * Release.
 
 
 ### 0.3.0 (December 27, 2016)
