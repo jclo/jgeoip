@@ -1,5 +1,5 @@
 /* global describe, it */
-/* eslint max-len: [1, 120, 2], no-new: 0, no-unused-expressions: 0 */
+/* eslint max-len: [1, 120, 2], no-new: 0, no-unused-expressions: 0, semi-style: 0 */
 
 'use strict';
 
@@ -288,8 +288,8 @@ describe('jGeoIP2', function() {
         });
       });
 
-    // Nota:
-    // IPv6 do not return city, postal and subdivisions yet!
+      // Nota:
+      // IPv6 do not return city, postal and subdivisions yet!
       describe('Test the IPv6 address ' + IPV6, function() {
         var geoip
           , record

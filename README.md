@@ -37,19 +37,19 @@ geoip.getRecord('2001:4860:4860::8844');
 `GeoLite2-City.mmdb` outputs:
 
 ```
-{ city: 
+{ city:
    { geoname_id: 5375480,
-     names: 
+     names:
       { de: 'Mountain View',
         en: 'Mountain View',
         fr: 'Mountain View',
         ja: 'マウンテンビュー',
         ru: 'Маунтин-Вью',
         'zh-CN': '芒廷维尤' } },
-  continent: 
+  continent:
    { code: 'NA',
      geoname_id: 6255149,
-     names: 
+     names:
       { de: 'Nordamerika',
         en: 'North America',
         es: 'Norteamérica',
@@ -58,10 +58,10 @@ geoip.getRecord('2001:4860:4860::8844');
         'pt-BR': 'América do Norte',
         ru: 'Северная Америка',
         'zh-CN': '北美洲' } },
-  country: 
+  country:
    { geoname_id: 6252001,
      iso_code: 'US',
-     names: 
+     names:
       { de: 'USA',
         en: 'United States',
         es: 'Estados Unidos',
@@ -70,16 +70,16 @@ geoip.getRecord('2001:4860:4860::8844');
         'pt-BR': 'Estados Unidos',
         ru: 'Сша',
         'zh-CN': '美国' } },
-  location: 
+  location:
    { latitude: 37.386,
      longitude: -122.0838,
      metro_code: 807,
      time_zone: 'America/Los_Angeles' },
   postal: { code: '94040' },
-  registered_country: 
+  registered_country:
    { geoname_id: 6252001,
      iso_code: 'US',
-     names: 
+     names:
       { de: 'USA',
         en: 'United States',
         es: 'Estados Unidos',
@@ -97,10 +97,10 @@ Some IP addresses do not report `city` information. Most IPv6 addresses report c
 `GeoLite2-Country.mmdb` outputs:
 
 ```
-{ continent: 
+{ continent:
    { code: 'NA',
      geoname_id: 6255149,
-     names: 
+     names:
       { de: 'Nordamerika',
         en: 'North America',
         es: 'Norteamérica',
@@ -109,10 +109,10 @@ Some IP addresses do not report `city` information. Most IPv6 addresses report c
         'pt-BR': 'América do Norte',
         ru: 'Северная Америка',
         'zh-CN': '北美洲' } },
-  country: 
+  country:
    { geoname_id: 6252001,
      iso_code: 'US',
-     names: 
+     names:
       { de: 'USA',
         en: 'United States',
         es: 'Estados Unidos',
@@ -121,10 +121,10 @@ Some IP addresses do not report `city` information. Most IPv6 addresses report c
         'pt-BR': 'Estados Unidos',
         ru: 'Сша',
         'zh-CN': '美国' } },
-  registered_country: 
+  registered_country:
    { geoname_id: 6252001,
      iso_code: 'US',
-     names: 
+     names:
       { de: 'USA',
         en: 'United States',
         es: 'Estados Unidos',
@@ -157,6 +157,6 @@ Some IP addresses do not report `city` information. Most IPv6 addresses report c
 [download-url]: https://www.npmjs.com/package/jgeoip
 [travis-url]: https://travis-ci.org/jclo/jgeoip
 [coveralls-url]: https://coveralls.io/github/jclo/jgeoip?branch=master
-[dependencies-url]: https://david-dm.org/jclo/jgeoip#info=dependencies
-[devdependencies-url]: https://david-dm.org/jclo/jgeoip#info=devDependencies
+[dependencies-url]: https://david-dm.org/jclo/jgeoip
+[devdependencies-url]: https://david-dm.org/jclo/jgeoip?type=dev
 [license-url]: http://opensource.org/licenses/MIT
