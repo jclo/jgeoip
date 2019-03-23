@@ -218,9 +218,13 @@ describe('jGeoIP2', function() {
           expect(record).to.be.an('object');
         });
 
-        it('Expects this record to have the property "city".', function() {
-          expect(record).to.have.property('city');
-        });
+        // Nota:
+        // city, postal and subdivisions have been removed from new city
+        // databases for this address at least.
+
+        // it('Expects this record to have the property "city".', function() {
+        //   expect(record).to.have.property('city');
+        // });
 
         it('Expects this record to have the property "continent".', function() {
           expect(record).to.have.property('continent');
@@ -234,17 +238,17 @@ describe('jGeoIP2', function() {
           expect(record).to.have.property('location');
         });
 
-        it('Expects this record to have the property "postal".', function() {
-          expect(record).to.have.property('postal');
-        });
+        // it('Expects this record to have the property "postal".', function() {
+        //   expect(record).to.have.property('postal');
+        // });
 
         it('Expects this record to have the property "registered_country".', function() {
           expect(record).to.have.property('registered_country');
         });
 
-        it('Expects this record to have the property "subdivisions".', function() {
-          expect(record).to.have.property('subdivisions');
-        });
+        // it('Expects this record to have the property "subdivisions".', function() {
+        //   expect(record).to.have.property('subdivisions');
+        // });
       });
 
       describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, function() {
