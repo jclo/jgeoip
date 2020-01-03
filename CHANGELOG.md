@@ -1,6 +1,14 @@
 ### HEAD
 
-### 0.3.1 (March 23, 2019)
+#### 0.3.3 (January 3, 2020)
+
+  * Updated the dependencies,
+  * Replaced the deprecated new Buffer by Buffer.from(),
+  * Updated the tool that downloads the MaxMind GeoLite databases,
+  * ...,
+
+
+### 0.3.2 (March 23, 2019)
 
   * Updated the dependencies,
   * Updated the test tool to match with the records of the latest databases,

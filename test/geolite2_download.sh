@@ -5,7 +5,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2019 jclo <jclo@mobilabs.fr> (http://www.mobilabs.fr/)
+# Copyright (c) 2020 jclo <jclo@mobilabs.fr> (http://www.mobilabs.fr/)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -25,9 +25,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-URL="http://geolite.maxmind.com/download/geoip/database"
-CITY="GeoLite2-City.mmdb"
-COUNTRY="GeoLite2-Country.mmdb"
+URL="http://vps579206.ovh.net/download/geoip/database"
+CITY="GeoLite2-City"
+COUNTRY="GeoLite2-Country"
+DATE="_20191231"
+EXT="tar.gz"
 DIRECTORY="./_db"
 
 # Check if database dir exists. Otherwise, create it.
@@ -37,15 +39,17 @@ if [ ! -d "${DIRECTORY}" ]; then
 fi
 
 # Check if 'CITY' exists. Otherwise download it.
-if [ ! -f "${DIRECTORY}/${CITY}" ]; then
-  curl --get ${URL}/${CITY}.gz -o ${DIRECTORY}/${CITY}.gz
+if [ ! -f "${DIRECTORY}/${CITY}.mmdb" ]; then
   echo "${CITY} does not exist. Downloading it ..."
-  gzip -d ${DIRECTORY}/${CITY}.gz
+  curl --get ${URL}/${CITY}${DATE}.${EXT} -o ${DIRECTORY}/${CITY}${DATE}.${EXT}
+  tar xvf ${DIRECTORY}/${CITY}${DATE}.${EXT} --directory ${DIRECTORY}
+  cp ${DIRECTORY}/${CITY}${DATE}/${CITY}.mmdb ${DIRECTORY}/.
 fi
 
 # Check if 'COUNTRY' exists. Otherwise download it.
-if [ ! -f "${DIRECTORY}/${COUNTRY}" ]; then
-  curl --get ${URL}/${COUNTRY}.gz -o ${DIRECTORY}/${COUNTRY}.gz
+if [ ! -f "${DIRECTORY}/${COUNTRY}.mmdb" ]; then
   echo "${COUNTRY} does not exist. Downloading it ..."
-  gzip -d ${DIRECTORY}/${COUNTRY}.gz
+  curl --get ${URL}/${COUNTRY}${DATE}.${EXT} -o ${DIRECTORY}/${COUNTRY}${DATE}.${EXT}
+  tar xvf ${DIRECTORY}/${COUNTRY}${DATE}.${EXT} --directory ${DIRECTORY}
+  cp ${DIRECTORY}/${COUNTRY}${DATE}/${COUNTRY}.mmdb ${DIRECTORY}/.
 fi
