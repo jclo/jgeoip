@@ -5,7 +5,7 @@
   * Updated the dependencies,
   * Replaced the deprecated new Buffer by Buffer.from(),
   * Updated the tool that downloads the MaxMind GeoLite databases,
-  * ...,
+  * Release.
 
 
 ### 0.3.2 (March 23, 2019)
