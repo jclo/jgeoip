@@ -1,10 +1,9 @@
 # jGeoIP
 
 [![NPM version][npm-image]][npm-url]
+[![GitHub last commit][commit-image]][commit-url]
 [![Travis CI][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
-[![Dependencies status][dependencies-image]][dependencies-url]
-[![Dev Dependencies status][devdependencies-image]][devdependencies-url]
 [![License][license-image]](LICENSE.md)
 
 [![NPM install][npm-install-image]][npm-install-url]
@@ -141,22 +140,24 @@ Some IP addresses do not report `city` information. Most IPv6 addresses report c
 
 <!--- URls -->
 
-[npm-image]: https://img.shields.io/npm/v/jgeoip.svg?style=flat-square
-[npm-install-image]: https://nodei.co/npm/jgeoip.png?compact=true
-[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
-[download-image]: https://img.shields.io/npm/dm/jgeoip.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/jclo/jgeoip.svg?style=flat-square
-[coveralls-image]: https://img.shields.io/coveralls/jclo/jgeoip/master.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/jgeoip.svg?logo=npm&logoColor=fff&label=NPM+package
+[release-image]: https://img.shields.io/github/release/jclo/jgeoip.svg?include_prereleases
+[commit-image]: https://img.shields.io/github/last-commit/jclo/jgeoip.svg?logo=github
+[travis-image]: https://img.shields.io/travis/com/jclo/jgeoip.svg?logo=travis-ci&logoColor=fff
+[coveralls-image]: https://img.shields.io/coveralls/jclo/jgeoip/master.svg?&logo=coveralls
 [dependencies-image]: https://david-dm.org/jclo/jgeoip/status.svg?theme=shields.io
 [devdependencies-image]: https://david-dm.org/jclo/jgeoip/dev-status.svg?theme=shields.io
-[license-image]: https://img.shields.io/npm/l/jgeoip.svg?style=flat-square
+[npm-bundle-size-image]: https://img.shields.io/bundlephobia/minzip/jgeoip.svg
+[license-image]: https://img.shields.io/npm/l/jgeoip.svg
 
 [npm-url]: https://www.npmjs.com/package/jgeoip
-[npm-install-url]: https://nodei.co/npm/jgeoip
-[node-url]: http://nodejs.org/download
-[download-url]: https://www.npmjs.com/package/jgeoip
-[travis-url]: https://travis-ci.org/jclo/jgeoip
+[release-url]: https://github.com/jclo/jgeoip/tags
+[commit-url]: https://github.com/jclo/jgeoip/commits/master
+[travis-url]: https://app.travis-ci.com/jclo/jgeoip?branch=main
 [coveralls-url]: https://coveralls.io/github/jclo/jgeoip?branch=master
 [dependencies-url]: https://david-dm.org/jclo/jgeoip
 [devdependencies-url]: https://david-dm.org/jclo/jgeoip?type=dev
 [license-url]: http://opensource.org/licenses/MIT
+[npm-bundle-size-url]: https://img.shields.io/bundlephobia/minzip/jgeoip
+
+-- oOo ---

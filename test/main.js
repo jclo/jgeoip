@@ -1,28 +1,29 @@
 /* global describe, it */
-/* eslint max-len: [1, 120, 2], no-new: 0, no-unused-expressions: 0, semi-style: 0 */
+/* eslint max-len: [1, 120, 2], no-new: 0, no-unused-expressions: 0, semi-style: 0,
+  one-var: 0, prefer-template: 0 */
 
 'use strict';
 
 // -- Node modules
-var fs       = require('fs')
-  , expect   = require('chai').expect
-  , execSync = require('child_process').execSync
-  ;
+const fs           = require('fs')
+    , { expect }   = require('chai')
+    , { execSync } = require('child_process')
+    ;
 
 // -- Local modules
-var GeoIP = require('../index.js');
+const GeoIP = require('../index');
 
 // -- Local constants
-var CMD        = './test/geolite2_download.sh'
-  , COUNTRY    = '_db/GeoLite2-Country.mmdb'
-  , CITY       = '_db/GeoLite2-City.mmdb'
-  , IPV4       = '8.8.8.8'
-  , IPV6       = '2001:4860:4860::8888'
-  , IPV4TO6MAP = '::ffff:54.88.56.156'
-  , PRIVATEIP  = '192.168.98.1'
-  , FALSEIP4s   = ['8.8.8', '8.8.8.-8', '500.500.500.500']
-  , FALSEIP6   = '2001:4860:4860:8888'
-  ;
+const CMD        = './test/geolite2_download.sh'
+    , COUNTRY    = '_db/GeoLite2-Country.mmdb'
+    , CITY       = '_db/GeoLite2-City.mmdb'
+    , IPV4       = '8.8.8.8'
+    , IPV6       = '2001:4860:4860::8888'
+    , IPV4TO6MAP = '::ffff:54.88.56.156'
+    , PRIVATEIP  = '192.168.98.1'
+    , FALSEIP4s   = ['8.8.8', '8.8.8.-8', '500.500.500.500']
+    , FALSEIP6   = '2001:4860:4860:8888'
+    ;
 
 // Download GeoLite2 databases if they are not present. This is required
 // for Travis CI as we do not provide MaxMind's databases with the
@@ -30,12 +31,10 @@ var CMD        = './test/geolite2_download.sh'
 execSync(CMD);
 
 // Start tests.
-describe('jGeoIP2', function() {
-  describe('Test jGeoIP2 constructor:', function() {
-    it('Expects the constructor to throw an error if the db is undefined.', function() {
-      var test
-        ;
-
+describe('jGeoIP2', () => {
+  describe('Test jGeoIP2 constructor:', () => {
+    it('Expects the constructor to throw an error if the db is undefined.', () => {
+      let test;
       try {
         test = false;
         new GeoIP();
@@ -45,10 +44,8 @@ describe('jGeoIP2', function() {
       expect(test).to.be.true;
     });
 
-    it('Expects it to throw an error if the db is unvalid.', function() {
-      var test
-        ;
-
+    it('Expects it to throw an error if the db is unvalid.', () => {
+      let test;
       try {
         test = false;
         new GeoIP('aaaa');
@@ -59,17 +56,15 @@ describe('jGeoIP2', function() {
     });
   });
 
-  describe('Test Country database:', function() {
-    it('Expects GeoLite2-Country.mmdb to exist.', function() {
-      var file = true;
+  describe('Test Country database:', () => {
+    it('Expects GeoLite2-Country.mmdb to exist.', () => {
+      let file = true;
       try { fs.accessSync(COUNTRY, fs.R_OK); } catch (e) { file = false; }
       expect(file).to.be.true;
     });
 
-    it('Expects GeoLite2-Country.mmdb to be a valid MaxMind\'s database.', function() {
-      var test = true
-        ;
-
+    it('Expects GeoLite2-Country.mmdb to be a valid MaxMind\'s database.', () => {
+      let test = true;
       try {
         new GeoIP(COUNTRY);
       } catch (e) {
@@ -78,99 +73,93 @@ describe('jGeoIP2', function() {
       expect(test).to.be.true;
     });
 
-    describe('Test the method getMetadata():', function() {
-      it('Expects the method to return a metadata record.', function() {
-        var geoip = new GeoIP(COUNTRY);
+    describe('Test the method getMetadata():', () => {
+      it('Expects the method to return a metadata record.', () => {
+        const geoip = new GeoIP(COUNTRY);
         expect(geoip.getMetadata()).to.be.an('object');
       });
     });
 
-    describe('Test the method getRecord():', function() {
-      describe('Test IPv4 address ' + IPV4, function() {
-        var geoip
-          , record
-          ;
+    describe('Test the method getRecord():', () => {
+      describe('Test IPv4 address ' + IPV4, () => {
+        let record;
 
-        geoip = new GeoIP(COUNTRY);
+        const geoip = new GeoIP(COUNTRY);
         record = geoip.getRecord(IPV4);
 
-        it('Expects the method to return a record.', function() {
+        it('Expects the method to return a record.', () => {
           expect(record).to.be.an('object');
         });
 
-        it('Expects this record to have the property "continent".', function() {
+        it('Expects this record to have the property "continent".', () => {
           expect(record).to.have.property('continent');
         });
 
-        it('Expects this record to have the property "country".', function() {
+        it('Expects this record to have the property "country".', () => {
           expect(record).to.have.property('country');
         });
 
-        it('Expects this record to have the property "registered_country".', function() {
+        it('Expects this record to have the property "registered_country".', () => {
           expect(record).to.have.property('registered_country');
         });
 
-        it('Expects the cache to return a record.', function() {
+        it('Expects the cache to return a record.', () => {
           record = geoip.getRecord(IPV4);
           expect(record).to.be.an('object');
         });
       });
 
-      describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, function() {
-        var geoip
-          , record
-          ;
+      describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, () => {
+        let record;
 
-        geoip = new GeoIP(COUNTRY);
+        const geoip = new GeoIP(COUNTRY);
         record = geoip.getRecord(IPV4TO6MAP);
 
-        it('Expects the method to return a record.', function() {
+        it('Expects the method to return a record.', () => {
           expect(record).to.be.an('object');
         });
 
-        it('Expects this record to have the property "continent".', function() {
+        it('Expects this record to have the property "continent".', () => {
           expect(record).to.have.property('continent');
         });
 
-        it('Expects this record to have the property "country".', function() {
+        it('Expects this record to have the property "country".', () => {
           expect(record).to.have.property('country');
         });
 
-        it('Expects this record to have the property "registered_country".', function() {
+        it('Expects this record to have the property "registered_country".', () => {
           expect(record).to.have.property('registered_country');
         });
 
-        it('Expects the cache to return a record.', function() {
+        it('Expects the cache to return a record.', () => {
           record = geoip.getRecord(IPV4TO6MAP);
           expect(record).to.be.an('object');
         });
       });
 
-      describe('Test IPv6 address ' + IPV6, function() {
-        var geoip
-          , record
-          ;
+      describe('Test IPv6 address ' + IPV6, () => {
+        let record;
 
-        geoip = new GeoIP(COUNTRY);
+        const geoip = new GeoIP(COUNTRY);
         record = geoip.getRecord(IPV6);
 
-        it('Expects the method to return a record.', function() {
+        it('Expects the method to return a record.', () => {
           expect(record).to.be.an('object');
         });
 
-        it('Expects this record to have the property "continent".', function() {
+        it('Expects this record to have the property "continent".', () => {
           expect(record).to.have.property('continent');
         });
 
-        it('Expects this record to have the property "country".', function() {
+        it('Expects this record to have the property "country".', () => {
           expect(record).to.have.property('country');
         });
 
-        it('Expects this record to have the property "registered_country".', function() {
+        it('Expects this record to have the property "registered_country".', () => {
           expect(record).to.have.property('registered_country');
         });
 
-        it('Expects the cache to return a record.', function() {
+        it('Expects the cache to return a record.', () => {
           record = geoip.getRecord(IPV6);
           expect(record).to.be.an('object');
         });
@@ -179,17 +168,15 @@ describe('jGeoIP2', function() {
   });
 
 
-  describe('Test City database:', function() {
-    it('Expects GeoLite2-City.mmdb to exist.', function() {
-      var file = true;
+  describe('Test City database:', () => {
+    it('Expects GeoLite2-City.mmdb to exist.', () => {
+      let file = true;
       try { fs.accessSync(CITY, fs.R_OK); } catch (e) { file = false; }
       expect(file).to.be.true;
     });
 
-    it('Expects GeoLite2-City.mmdb to be a valid MaxMind\'s database.', function() {
-      var test = true
-        ;
-
+    it('Expects GeoLite2-City.mmdb to be a valid MaxMind\'s database.', () => {
+      let test = true;
       try {
         new GeoIP(CITY);
       } catch (e) {
@@ -198,23 +185,19 @@ describe('jGeoIP2', function() {
       expect(test).to.be.true;
     });
 
-    describe('Test the method getMetadata():', function() {
-      it('Expects the method to return a metadata record.', function() {
-        var geoip = new GeoIP(CITY);
+    describe('Test the method getMetadata():', () => {
+      it('Expects the method to return a metadata record.', () => {
+        const geoip = new GeoIP(CITY);
         expect(geoip.getMetadata()).to.be.an('object');
       });
     });
 
-    describe('Test the method getRecord():', function() {
-      describe('Test IPv4 address ' + IPV4, function() {
-        var geoip
-          , record
-          ;
+    describe('Test the method getRecord():', () => {
+      describe('Test IPv4 address ' + IPV4, () => {
+        const geoip = new GeoIP(CITY);
+        const record = geoip.getRecord(IPV4);
 
-        geoip = new GeoIP(CITY);
-        record = geoip.getRecord(IPV4);
-
-        it('Expects the method to return a record.', function() {
+        it('Expects the method to return a record.', () => {
           expect(record).to.be.an('object');
         });
 
@@ -222,138 +205,127 @@ describe('jGeoIP2', function() {
         // city, postal and subdivisions have been removed from new city
         // databases for this address at least.
 
-        // it('Expects this record to have the property "city".', function() {
+        // it('Expects this record to have the property "city".', () => {
         //   expect(record).to.have.property('city');
         // });
 
-        it('Expects this record to have the property "continent".', function() {
+        it('Expects this record to have the property "continent".', () => {
           expect(record).to.have.property('continent');
         });
 
-        it('Expects this record to have the property "country".', function() {
+        it('Expects this record to have the property "country".', () => {
           expect(record).to.have.property('country');
         });
 
-        it('Expects this record to have the property "location".', function() {
+        it('Expects this record to have the property "location".', () => {
           expect(record).to.have.property('location');
         });
 
-        // it('Expects this record to have the property "postal".', function() {
+        // it('Expects this record to have the property "postal".', () => {
         //   expect(record).to.have.property('postal');
         // });
 
-        it('Expects this record to have the property "registered_country".', function() {
+        it('Expects this record to have the property "registered_country".', () => {
           expect(record).to.have.property('registered_country');
         });
 
-        // it('Expects this record to have the property "subdivisions".', function() {
+        // it('Expects this record to have the property "subdivisions".', () => {
         //   expect(record).to.have.property('subdivisions');
         // });
       });
 
-      describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, function() {
-        var geoip
-          , record
-          ;
+      describe('Test IPv4-mapped-IPv6 address ' + IPV4TO6MAP, () => {
+        const geoip = new GeoIP(CITY);
+        const record = geoip.getRecord(IPV4TO6MAP);
 
-        geoip = new GeoIP(CITY);
-        record = geoip.getRecord(IPV4TO6MAP);
-
-        it('Expects the method to return a record.', function() {
+        it('Expects the method to return a record.', () => {
           expect(record).to.be.an('object');
         });
 
-        it('Expects this record to have the property "city".', function() {
+        it('Expects this record to have the property "city".', () => {
           expect(record).to.have.property('city');
         });
 
-        it('Expects this record to have the property "continent".', function() {
+        it('Expects this record to have the property "continent".', () => {
           expect(record).to.have.property('continent');
         });
 
-        it('Expects this record to have the property "country".', function() {
+        it('Expects this record to have the property "country".', () => {
           expect(record).to.have.property('country');
         });
 
-        it('Expects this record to have the property "location".', function() {
+        it('Expects this record to have the property "location".', () => {
           expect(record).to.have.property('location');
         });
 
-        it('Expects this record to have the property "postal".', function() {
+        it('Expects this record to have the property "postal".', () => {
           expect(record).to.have.property('postal');
         });
 
-        it('Expects this record to have the property "registered_country".', function() {
+        it('Expects this record to have the property "registered_country".', () => {
           expect(record).to.have.property('registered_country');
         });
 
-        it('Expects this record to have the property "subdivisions".', function() {
+        it('Expects this record to have the property "subdivisions".', () => {
           expect(record).to.have.property('subdivisions');
         });
       });
 
       // Nota:
       // IPv6 do not return city, postal and subdivisions yet!
-      describe('Test the IPv6 address ' + IPV6, function() {
-        var geoip
-          , record
-          ;
+      describe('Test the IPv6 address ' + IPV6, () => {
+        const geoip = new GeoIP(CITY);
+        const record = geoip.getRecord(IPV6);
 
-        geoip = new GeoIP(CITY);
-        record = geoip.getRecord(IPV6);
-
-        it('Expects the method to return a record.', function() {
+        it('Expects the method to return a record.', () => {
           expect(record).to.be.an('object');
         });
 
-        // it('Expects that this record has the property "city".', function() {
+        // it('Expects that this record has the property "city".', () => {
         //   expect(record).to.have.property('city');
         // });
 
-        it('Expects this record to have the property "continent".', function() {
+        it('Expects this record to have the property "continent".', () => {
           expect(record).to.have.property('continent');
         });
 
-        it('Expects this record to have the property "country".', function() {
+        it('Expects this record to have the property "country".', () => {
           expect(record).to.have.property('country');
         });
 
-        it('Expects this record to have the property "location".', function() {
+        it('Expects this record to have the property "location".', () => {
           expect(record).to.have.property('location');
         });
 
-        // it('Expects that this record has the property "postal".', function() {
+        // it('Expects that this record has the property "postal".', () => {
         //   expect(record).to.have.property('postal');
         // });
 
-        it('Expects this record to have the property "registered_country".', function() {
+        it('Expects this record to have the property "registered_country".', () => {
           expect(record).to.have.property('registered_country');
         });
 
-        // it('Expects that this record has the property "subdivisions".', function() {
+        // it('Expects that this record has the property "subdivisions".', () => {
         //   expect(record).to.have.property('subdivisions');
         // });
       });
     });
   });
 
-  describe('Test the method getRecord() for wrong IPs:', function() {
-    var geoip
-      , test
-      ;
+  describe('Test the method getRecord() for wrong IPs:', () => {
+    let test;
+    const geoip = new GeoIP(CITY);
 
-    geoip = new GeoIP(CITY);
-
-    it('Expects the method to return null for the Private IP ' + PRIVATEIP + '.', function() {
+    it('Expects the method to return null for the Private IP ' + PRIVATEIP + '.', () => {
       expect(geoip.getRecord(PRIVATEIP)).to.be.null;
     });
 
-    it('Expects it to return null for an undefined address.', function() {
+    it('Expects it to return null for an undefined address.', () => {
       expect(geoip.getRecord()).to.be.null;
     });
 
-    FALSEIP4s.forEach(function(FALSEIP4) {
-      it('Expects it to throw an error for the malformed IPv4 address ' + FALSEIP4 + '.', function() {
+    FALSEIP4s.forEach((FALSEIP4) => {
+      it('Expects it to throw an error for the malformed IPv4 address ' + FALSEIP4 + '.', () => {
         try {
           test = false;
           geoip.getRecord(FALSEIP4);
@@ -364,7 +336,7 @@ describe('jGeoIP2', function() {
       });
     });
 
-    it('Expects it to throw an error for the malformed IPv6 address ' + FALSEIP6 + '.', function() {
+    it('Expects it to throw an error for the malformed IPv6 address ' + FALSEIP6 + '.', () => {
       try {
         test = false;
         geoip.getRecord(FALSEIP6);

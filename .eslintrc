@@ -1,13 +1,34 @@
 {
-  "extends": "airbnb-base/legacy",
+  /**
+   * Set JavaScript language options
+   */
+  "parserOptions": {
+    "sourceType": "script",
+  },
+  /**
+   * Set Environnement
+   */
+  "env": {
+    "browser": false
+  },
+  /**
+   * Set globals
+   */
+  "globals": {
+  },
+  /**
+   * Set rules
+   */
+  "extends": "airbnb-base",
   // Overwritten airbnb's rules:
   "rules": {
-    one-var: 0,
+    strict: ["error", "global"],
     func-names: ["error", "never"],
     space-before-function-paren: ["error", "never"],
-    no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }],
+    no-plusplus: ["error", { "allowForLoopAfterthoughts": true }],
+    "no-multi-spaces": [2, { exceptions: { "VariableDeclarator": true } }],
     comma-style: ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }],
-    key-spacing: ["error", { "align": "value" }],
-    no-plusplus: ["error", { "allowForLoopAfterthoughts": true }]
+    indent: ["error", 2, { "VariableDeclarator": { "const": 2 }, "SwitchCase": 1 }],
+    no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]
   }
 }

@@ -5,7 +5,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2020 jclo <jclo@mobilabs.fr> (http://www.mobilabs.fr/)
+# Copyright (c) 2022 jclo <jclo@mobilabs.fr> (http://www.mobilabs.fr/)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -25,10 +25,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-URL="http://vps579206.ovh.net/download/geoip/database"
+URL="http://vps579206.ovh.net/download/geolite2"
 CITY="GeoLite2-City"
 COUNTRY="GeoLite2-Country"
-DATE="_20191231"
+DATE="_20220125"
 EXT="tar.gz"
 DIRECTORY="./_db"
 
@@ -53,3 +53,5 @@ if [ ! -f "${DIRECTORY}/${COUNTRY}.mmdb" ]; then
   tar xvf ${DIRECTORY}/${COUNTRY}${DATE}.${EXT} --directory ${DIRECTORY}
   cp ${DIRECTORY}/${COUNTRY}${DATE}/${COUNTRY}.mmdb ${DIRECTORY}/.
 fi
+
+# -- oOo ---
