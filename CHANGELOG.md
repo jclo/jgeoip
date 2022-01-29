@@ -4,7 +4,7 @@
 
   * Updated the project dependencies,
   * Updated the copyright,
-  * ...,
+  * Release.
 
 
 #### 0.3.3 (January 3, 2020)
