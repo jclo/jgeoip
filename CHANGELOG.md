@@ -1,5 +1,11 @@
 ### HEAD
 
+### 0.3.x (January 29, 2022)
+
+  * Removed an obsolete badge from the README.md file,
+  * ...,
+
+
 #### 0.3.4 (January 29, 2022)
 
   * Updated the project dependencies,

@@ -6,7 +6,6 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![License][license-image]](LICENSE.md)
 
-[![NPM install][npm-install-image]][npm-install-url]
 
 jGeoIP is a light Javascript API for reading new [MaxMind](https://www.maxmind.com)'s DB files (mmdb). jGeoIP stores the complete database in memory to speed up the performances. Besides, it implements a LRU (Least Recently Used) cache for optimizing reading performances for the most recently used IPs.
 
