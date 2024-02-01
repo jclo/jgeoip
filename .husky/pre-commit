@@ -2,5 +2,8 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm test
-npm run check-coverage
+npm run check:coverage
 npm run report
+
+
+# -- oOo ---

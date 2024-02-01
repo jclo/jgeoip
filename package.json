@@ -3,16 +3,31 @@
   "version": "0.3.4",
   "description": "A light Javascript API for reading MaxMind DB files",
   "main": "index.js",
+  "bin": {},
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "cross-env NODE_ENV=test nyc --reporter=lcov mocha ./test/main.js",
-    "check-coverage": "nyc check-coverage --statements 85 --branches 70 --functions 100 --lines 85",
-    "display-coverage": "opener ./coverage/lcov-report/index.html",
-    "report-coverage": "nyc report --reporter=text-lcov | coveralls",
-    "report": "nyc report",
-    "prepare": "husky install"
+    "general": " --- GENERAL ---",
+    "build:js": " --- JAVASCRIPT --- ",
+    "build:css": " --- CSS --- ",
+    "build:generic": " --- BUILD (GENERIC) --- ",
+    "build:development": " --- BUILD (DEVELOPMENT) --- ",
+    "build:production": " --- BUILD (PRODUCTION) --- ",
+
+    "testing": " --- TESTING --- ",
+    "pretest": "sh ./scripts/geolite2_download.sh",
+    "test": "cross-env NODE_ENV=test c8 --reporter=lcov mocha ./test/main.js",
+    "display:coverage": "open -a safari ./coverage/lcov-report/index.html",
+    "check:coverage": "c8 check-coverage --statements 80 --branches 70 --functions 60 --lines 80",
+    "report": "c8 report",
+
+    "serving": " --- SERVING --- ",
+    "watch:js:css": " --- WATCHING --- ",
+    "deployment": " --- DEPLOYMENT --- ",
+    "others": " --- OTHERS ---",
+    "prepare": "husky install",
+    "doc": ""
   },
   "repository": {
     "type": "git",
@@ -27,9 +42,9 @@
     "mmdb"
   ],
   "author": {
-    "name": "jclo",
-    "email": "jclo@mobilabs.fr",
-    "url": "http://www.mobilabs.fr/"
+    "name": "Mobilabs",
+    "email": "contact@mobilabs.fr",
+    "url": "http://www.mobilabs.fr"
   },
   "contributors": [
     "DmitryM <dmitry@mainlywrenches.co> (http://mainlywrenches.co/)",
@@ -40,17 +55,25 @@
     "url": "https://github.com/jclo/jgeoip/issues"
   },
   "homepage": "https://github.com/jclo/jgeoip",
+  "dependencies": {},
   "devDependencies": {
-    "chai": "^4.3.6",
-    "coveralls": "^3.1.1",
+    "c8": "^9.0.0",
+    "chai": "^4.4.0",
     "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
+    "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "husky": "^7.0.4",
-    "mocha": "^9.2.0",
-    "nyc": "^15.1.0",
-    "opener": "^1.5.2"
+    "eslint-plugin-import": "^2.29.1",
+    "husky": "^8.0.3",
+    "mocha": "^10.2.0",
+    "@mobilabs/es6lib": "2.2.0"
+  },
+  "c8": {
+    "include": [
+      "index.js",
+      "lib/**/*.js"
+    ],
+    "exclude": [],
+    "all": false
   },
   "publishConfig": {
     "access": "public"

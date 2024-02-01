@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![GitHub last commit][commit-image]][commit-url]
-[![Travis CI][travis-image]][travis-url]
+[![Github workflow][ci-image]][ci-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![License][license-image]](LICENSE.md)
 
@@ -142,21 +142,17 @@ Some IP addresses do not report `city` information. Most IPv6 addresses report c
 [npm-image]: https://img.shields.io/npm/v/jgeoip.svg?logo=npm&logoColor=fff&label=NPM+package
 [release-image]: https://img.shields.io/github/release/jclo/jgeoip.svg?include_prereleases
 [commit-image]: https://img.shields.io/github/last-commit/jclo/jgeoip.svg?logo=github
-[travis-image]: https://img.shields.io/travis/com/jclo/jgeoip.svg?logo=travis-ci&logoColor=fff
+[ci-image]: https://github.com/jclo/jgeoip/actions/workflows/ci.yml/badge.svg
 [coveralls-image]: https://img.shields.io/coveralls/jclo/jgeoip/master.svg?&logo=coveralls
-[dependencies-image]: https://david-dm.org/jclo/jgeoip/status.svg?theme=shields.io
-[devdependencies-image]: https://david-dm.org/jclo/jgeoip/dev-status.svg?theme=shields.io
 [npm-bundle-size-image]: https://img.shields.io/bundlephobia/minzip/jgeoip.svg
 [license-image]: https://img.shields.io/npm/l/jgeoip.svg
 
 [npm-url]: https://www.npmjs.com/package/jgeoip
 [release-url]: https://github.com/jclo/jgeoip/tags
 [commit-url]: https://github.com/jclo/jgeoip/commits/master
-[travis-url]: https://app.travis-ci.com/jclo/jgeoip?branch=main
+[ci-url]: https://github.com/jclo/es6lib/jgeoip/workflows/ci.yml
 [coveralls-url]: https://coveralls.io/github/jclo/jgeoip?branch=master
-[dependencies-url]: https://david-dm.org/jclo/jgeoip
-[devdependencies-url]: https://david-dm.org/jclo/jgeoip?type=dev
-[license-url]: http://opensource.org/licenses/MIT
 [npm-bundle-size-url]: https://img.shields.io/bundlephobia/minzip/jgeoip
+[license-url]: http://opensource.org/licenses/MIT
 
 -- oOo ---
