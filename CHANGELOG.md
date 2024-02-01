@@ -1,10 +1,10 @@
 ### HEAD
 
-### 0.3.x (February 1, 2024)
+### 0.3.5 (February 1, 2024)
 
   * Removed an obsolete badge from the README.md file,
   * Updated the project with the boilerplate ES6lib v2.2 (Github Actions),
-  * ...,
+  * Release.
 
 
 #### 0.3.4 (January 29, 2022)
